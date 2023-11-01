@@ -27,6 +27,12 @@ public class TransactionController {
         modelMap.put("listOfAllTransactionsByDate", listOfAllTransactionsByDate);
         return "transactions";
     }
+    @GetMapping("/transactions2")
+    public String transactionsList2(ModelMap modelMap){
+        List<Transaction> listOfAllTransactionsByDate = transactionService.listOfAllTransactionsByDate();
+        modelMap.put("listOfAllTransactionsByDate", listOfAllTransactionsByDate);
+        return "folderdeeper/transactions2";
+    }
     @GetMapping("/transactions/{transactionId}")
     public String getSingleTransaction (@PathVariable Long transactionId, ModelMap modelMap){
         Transaction transaction = transactionService.findById(transactionId);
